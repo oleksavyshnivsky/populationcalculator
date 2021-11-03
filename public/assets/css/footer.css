@@ -1,0 +1,37 @@
+:root {
+	--footerheight: 250px;
+	--footerheight-md: 200px;
+	--footerheight-lg: 120px;
+}
+
+/* Фіксований підвал */
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/* Відступ на висоту підвалу */
+	margin-bottom: var(--footerheight-lg);
+
+	/*background-color: #eee;*/
+}
+
+#footer {
+	width: 100%;
+	height: var(--footerheight-lg);
+	position: absolute;
+	bottom: 0;
+
+	background-color: black;
+	color: white;
+	/*border-top: 15px solid #007f33;*/
+}
+
+#footer a {
+	color: white;
+}
+
+#footer a:hover {
+	color: white;
+}

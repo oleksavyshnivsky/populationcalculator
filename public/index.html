@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head class="dark">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="color-scheme" content="dark light">
+
+	<title>Калькулятор смертей</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+	<!-- Microformat -->
+	<!-- <meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta property="og:locale" content="uk_UA"/>
+	<meta property="og:description" content=""/>
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:site_name" content=""/> -->
+	<!-- // Microformat -->
+
+	<link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/vendor/bootstrap-dark-5/css/bootstrap-nightshade.min.css">
+	<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/css/index.css">
+	<link rel="stylesheet" href="/assets/css/footer.css">
+
+	
+	<script src="/assets/js/docready.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link" href="javascript:void(0)" id="darkmode-switcher" title="Перемкнути темний/світлий режим"><i class="fa fa-toggle-on" aria-hidden="true"></i> Темний/світлий режим</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h1>Калькулятор смертей</h1>
+		<blockquote cite="https://www.facebook.com/sergijk/posts/5080924675307602">
+			Обдумавши інформацію останніх днів, вирішив порахувати, що обирають люди.<br>
+			На вчорашній ранок [22 жовтня 2021], смертельні випадки — 63 003 від cov19.<br>
+			"Жорстка математика". Приклад наведений без додаткових коофіцієнтів, усі цифри взяті з відкритих джерел:<br>
+			<ul>
+				<li>Населення України: <b>41 342 000</b></li>
+				<li>Відсоток смертності від зараження cov19: <b>2,3%</b> в Україні.</li>
+			</ul>
+			Якщо вся країна перехворіє, то втрати становитимуть <b>950 866</b> осіб.<br>
+			<ul>
+				<li>Відсоток смертності від вакцинації в Україні: <b>0,0015%</b>.</li>
+			</ul>
+			Якщо всі вакцинуються втрати становитимуть <b>620</b> осіб. Припустимо, після другої вакцинації відсоток такий самий. Отже, при вакцинації всієї держави, втрати будуть <b>1 240</b> людей.<br>
+			Від нас з вами залежить, куди ми рухаємось!<br>
+			<b>950 866</b> чи <b>1 240</b><br>
+			В житті ці цифти можуть коливатися!
+		</blockquote>
+		</p>
+		<form method="post" id="form-calc" class="d-flex flex-wrap justify-content-center">
+			<div><div class="input-group">
+				<label class="input-group-text" for="editor-population">Населення</label>
+				<input type="number" id="editor-population" name="population" value="" class="form-control" required min="0" max="8000000000">
+			</div></div>
+			<div><div class="input-group">
+				<label class="input-group-text" for="editor-infection2death-perc">Відсоток смертності від зараження COVID-19</label>
+				<input type="number" id="editor-infection2death-perc" name="infection2death-perc" value="" class="form-control" required min="0" max="100" step=".0001">
+			</div></div>
+			<div><div class="input-group">
+				<label class="input-group-text" for="editor-vaccination2death-perc">Відсоток смертності від вакцинації</label>
+				<input type="number" id="editor-vaccination2death-perc" name="vaccination2death-perc" value="" class="form-control" required min="0" max="100" step=".0001">
+			</div></div>
+			<div class="text-end">
+				<button type="button" id="btn-defaults" class="btn btn-secondary">Значення за замовчуванням</button>
+				<input type="submit" value="Розрахувати" class="btn btn-primary">
+			</div>
+		</form>
+
+		<div class="my-3 text-center">
+			<div><div class="input-group">
+				<label class="input-group-text" for="editor-fullnonvacdeaths">Втрати, якщо перехворіє вся країна (повністю НЕвакцинована)</label>
+				<input type="text" id="editor-fullnonvacdeaths" name="fullnonvacdeaths" value="" class="form-control text-center" disabled>
+			</div></div>
+			<div><div class="input-group">
+				<label class="input-group-text" for="editor-fullvacdeaths">Втрати, якщо перехворіє вся країна (повністю ВАКЦИНОВАНА)</label>
+				<input type="text" id="editor-fullvacdeaths" name="fullvacdeaths" value="" class="form-control text-center" disabled>
+			</div></div>
+		</div>
+	</div>
+
+	<div id="footer" class="p-3 text-center">
+		<p>Favicon: Зображення авторства <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1812092">Arek Socha</a> з <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1812092">Pixabay</a>, перетворене через <a href="https://favicon.io/favicon-converter/" target="_blank">favicon.io</a></p>
+	</div>
+
+	<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/vendor/bootstrap-dark-5/js/darkmode.min.js"></script>
+	<script>docReady(() => document.querySelector('#darkmode-switcher').onclick = e => darkmode.toggleDarkMode())</script>
+	<script src="/assets/js/index.js"></script>
+</body>
+</html>
